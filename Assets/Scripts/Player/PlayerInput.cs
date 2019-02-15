@@ -35,5 +35,10 @@ public class PlayerInput : MonoBehaviour {
 		return Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton14);
 	}
 
+    public bool ShootInput()
+    {
+        return Input.GetKey(KeyCode.Mouse0);
+    }
+
 
 }

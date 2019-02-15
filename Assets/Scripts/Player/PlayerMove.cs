@@ -18,9 +18,8 @@ public class PlayerMove : MonoBehaviour {
         contactDetection = GetComponent<ContactDetection>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        Debug.Log(Mathf.Sign(Input.GetAxis("Horizontal")));
+	void FixedUpdate () {
+        //Debug.Log(Mathf.Sign(Input.GetAxis("Horizontal")));
         if (Mathf.Abs(Input.GetAxis("Horizontal")) < prevAbsInp || 
         (Mathf.Abs(Input.GetAxis("Horizontal"))<Mathf.Epsilon && contactDetection.Grounded))
         {    
@@ -43,8 +42,4 @@ public class PlayerMove : MonoBehaviour {
         prevAbsInp = Mathf.Abs(Input.GetAxis("Horizontal"));
     }
 
-    private void FixedUpdate()
-    {
-
-    }
 }
