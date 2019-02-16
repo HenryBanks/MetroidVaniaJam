@@ -28,10 +28,10 @@ public class Weapon : MonoBehaviour
 
         if (Time.timeScale > Mathf.Epsilon)
         {
-            Vector3 direction = (Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2)).normalized;
-            Debug.Log(direction);
-            transform.localPosition = direction;
-            transform.up = direction;
+            //Vector3 direction = (Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2)).normalized;
+            //Debug.Log(direction);
+            //transform.localPosition = direction;
+            //transform.up = direction;
 
             if (Input.GetKey(KeyCode.Mouse0) && Time.time > timeToNextShot)
             {

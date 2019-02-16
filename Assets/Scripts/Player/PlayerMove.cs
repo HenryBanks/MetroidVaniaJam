@@ -13,9 +13,12 @@ public class PlayerMove : MonoBehaviour {
     float accel = 25f;
     float turnAccel = 50f;
 
+    float xScale;
+
     void Awake () {
 		rb = GetComponent<Rigidbody2D> ();
         contactDetection = GetComponent<ContactDetection>();
+        xScale = transform.localScale.x;
 	}
 	
 	void FixedUpdate () {
@@ -35,11 +38,24 @@ public class PlayerMove : MonoBehaviour {
                 }
             }else if (Mathf.Abs(Mathf.Sign(rb.velocity.x) + Mathf.Sign(Input.GetAxis("Horizontal"))) < Mathf.Epsilon)
             {
+
                 rb.AddForce(new Vector2(turnAccel * Mathf.Sign(Input.GetAxis("Horizontal")), 0.0f));
             }
         }
         rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x)*Mathf.Min(Mathf.Abs(rb.velocity.x),maxSpeed),rb.velocity.y);
         prevAbsInp = Mathf.Abs(Input.GetAxis("Horizontal"));
+
+        //TURN CHARACTER
+        if (Input.GetAxis("Horizontal") > 0.0f)
+        {
+            transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (Input.GetAxis("Horizontal") < 0.0f)
+        {
+            transform.localScale = new Vector3(-xScale, transform.localScale.y, transform.localScale.z);
+        }
+
     }
 
 }
