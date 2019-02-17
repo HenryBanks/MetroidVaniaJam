@@ -23,13 +23,11 @@ public class Player : MonoBehaviour {
         contactDetection = GetComponent<ContactDetection>();
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
-
-        
 	}
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
