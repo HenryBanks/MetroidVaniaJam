@@ -13,7 +13,7 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 1f, 0));
+        transform.Rotate(new Vector3(0f, 0f, 1f));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
