@@ -7,9 +7,7 @@ public class PlayerJump : MonoBehaviour
     ContactDetection contactDetection;
 
     bool jumping;
-
-    float fallMultiplier=4.2f;
-
+    
     float jumpVelocity = 21f;
 
     float groundedSkin = 0.05f;
@@ -23,7 +21,6 @@ public class PlayerJump : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         contactDetection = GetComponent<ContactDetection>();
-        rb2d.gravityScale = fallMultiplier;
     }
 
 

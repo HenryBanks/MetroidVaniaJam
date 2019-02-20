@@ -11,12 +11,19 @@ public class Player : MonoBehaviour {
     Dash dash;
     PlayerInput playerInput;
 
-    float gravity = 4.2f;
-    public float Gravity { get { return gravity; } }
+    public static Player instance;
 
     // Use this for initialization
     void Awake () {
-		DontDestroyOnLoad (gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
         meatJump = GetComponent<PlayerJump>();
         meatMove = GetComponent<PlayerMove>();
         wallJump = GetComponent<WallJump>();
