@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
     WallJump wallJump;
     ContactDetection contactDetection;
     Dash dash;
-    PlayerInput playerInput;
 
     public static Player instance;
 
@@ -29,7 +28,6 @@ public class Player : MonoBehaviour {
         wallJump = GetComponent<WallJump>();
         contactDetection = GetComponent<ContactDetection>();
         dash = GetComponent<Dash>();
-        playerInput = GetComponent<PlayerInput>();
 	}
 
 
@@ -42,6 +40,14 @@ public class Player : MonoBehaviour {
     {
         meatMove.enabled = enable;
         meatJump.enabled = enable;
+    }
+
+    public void EnableActions(bool enable)
+    {
+        meatJump.enabled = enable;
+        meatMove.enabled = enable;
+        wallJump.enabled = enable;
+        dash.enabled = enable;
     }
 
 

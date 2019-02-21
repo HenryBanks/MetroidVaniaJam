@@ -7,14 +7,12 @@ public class Dash : MonoBehaviour {
     bool canDash;
     Rigidbody2D rb2d;
     ContactDetection contactDetection;
-    PlayerInput playerInput;
     Player player;
 
     float dashSpeed = 60f;
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
         contactDetection = GetComponent<ContactDetection>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
@@ -22,7 +20,7 @@ public class Dash : MonoBehaviour {
 
     private void Update()
     {
-        if (canDash && playerInput.DashInputDown())
+        if (canDash && PlayerInput.DashInputDown())
         {
             Debug.Log("DASH");
             StartCoroutine(RunDash());

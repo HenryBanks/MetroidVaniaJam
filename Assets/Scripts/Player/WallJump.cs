@@ -44,7 +44,7 @@ public class WallJump : MonoBehaviour {
             rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Max(rb2d.velocity.y, -1f));
 
 
-            if (GetComponent<PlayerInput>().JumpInputDown())
+            if (PlayerInput.JumpInputDown())
             {
                 Debug.Log("WALL JUMP");
 
