@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     WallJump wallJump;
     ContactDetection contactDetection;
     Dash dash;
+    Hack hack;
 
     public static Player instance;
 
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour {
         wallJump = GetComponent<WallJump>();
         contactDetection = GetComponent<ContactDetection>();
         dash = GetComponent<Dash>();
+        hack = GetComponent<Hack>();
 	}
 
 
@@ -48,6 +50,8 @@ public class Player : MonoBehaviour {
         meatMove.enabled = enable;
         wallJump.enabled = enable;
         dash.enabled = enable;
+        hack.enabled = enable;
+
     }
 
 
