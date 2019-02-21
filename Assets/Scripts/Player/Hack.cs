@@ -25,11 +25,7 @@ public class Hack : MonoBehaviour
         {
             if (currentTarget != null)
             {
-                Debug.Log(currentTarget.name+" HACKED");
                 currentTarget.SetHacked();
-                Camera.main.transform.parent = currentTarget.transform;
-                Camera.main.transform.localPosition = new Vector3(0f, 0f, -15f);
-                Player.instance.EnableActions(false);
             }
         }
 
