@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class PlayerInput {
 
+    public static bool CancelInputUp()
+    {
+        return Input.GetKeyUp(KeyCode.C);
+    }
+
     public static bool HackInputDown()
     {
         return Input.GetKeyDown(KeyCode.H);

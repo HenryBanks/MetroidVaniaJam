@@ -13,7 +13,7 @@ public class Hackable : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerInput.HackInputUp() && hacked)
+        if (PlayerInput.CancelInputUp() && hacked)
         {
             CancelHack();
         }
@@ -25,7 +25,7 @@ public class Hackable : MonoBehaviour
         Debug.Log("HACK CANCELED");
         Camera.main.transform.parent = Player.instance.transform;
         Camera.main.transform.localPosition = new Vector3(0f, 0f, -15f);
-        Player.instance.EnableActions(false);
+        Player.instance.EnableActions(true);
     }
 
     public void SetHacked()
