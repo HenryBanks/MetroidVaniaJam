@@ -10,10 +10,6 @@ public class WallJump : MonoBehaviour {
     bool onWallLeft;
 
     Vector2 playerSize;
-    Vector2 boxCentreRight;
-    Vector2 boxCentreLeft;
-
-    float wallSkin = 0.05f;
 
     float jumpVelocityX = 12f;
     float jumpVelocityY = 20f;

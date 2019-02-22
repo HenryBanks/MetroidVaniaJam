@@ -14153,6 +14153,7 @@ GameObject:
   - component: {fileID: 1500481190}
   - component: {fileID: 1500481191}
   - component: {fileID: 1500481187}
+  - component: {fileID: 1500481188}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -14234,6 +14235,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1500481188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500481185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5b7c5d889fb4ed6818f85a14981ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1500481189
 Transform:
   m_ObjectHideFlags: 0
@@ -23904,6 +23917,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4693769943217214251, guid: 12792b967e849447a9d3f758e3f5f7e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4693769943217214295, guid: 12792b967e849447a9d3f758e3f5f7e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23994,6 +24012,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4693769944259788377, guid: 12792b967e849447a9d3f758e3f5f7e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4693769944259788358, guid: 12792b967e849447a9d3f758e3f5f7e1,
         type: 3}
       propertyPath: orthographic
@@ -24003,6 +24026,11 @@ PrefabInstance:
         type: 3}
       propertyPath: orthographic size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693769944262298108, guid: 12792b967e849447a9d3f758e3f5f7e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4693769943217214292, guid: 12792b967e849447a9d3f758e3f5f7e1, type: 3}
