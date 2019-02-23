@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     protected Rigidbody2D rb2D;
-    protected enum State { notDetected, detected };
+    protected enum State { notDetected, detected, hacked };
 
     protected SimpleContactDetection simpleContactDetection;
 
@@ -23,17 +23,20 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Player.instance.transform.position - transform.position);
-        if (hit2D.collider != null)
+        if (state != State.hacked)
         {
-            //Debug.Log(hit2D.collider.name);
-            if (hit2D.collider.CompareTag("Player"))
+            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Player.instance.transform.position - transform.position);
+            if (hit2D.collider != null)
             {
-                DetectedBehaviour();
-            }
-            else
-            {
-                NotDetectedBehaviour();
+                //Debug.Log(hit2D.collider.name);
+                if (hit2D.collider.CompareTag("Player"))
+                {
+                    DetectedBehaviour();
+                }
+                else
+                {
+                    NotDetectedBehaviour();
+                }
             }
         }
     }
@@ -53,5 +56,15 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log("Detected");
         state = State.detected;
+    }
+
+    public void SetHacked()
+    {
+        state = State.hacked;
+    }
+
+    public void SetUnHacked()
+    {
+        state = State.notDetected;
     }
 }

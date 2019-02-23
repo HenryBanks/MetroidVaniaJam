@@ -12,8 +12,15 @@ public class WalkingBombAI : EnemyAI
 
     bool jumped;
 
-    [SerializeField]
-    Explosion explosion;
+    //[SerializeField]
+    //Explosion explosion;
+
+    WalkingBombActions walkingBombActions;
+
+    void Awake()
+    {
+        walkingBombActions = GetComponent<WalkingBombActions>();
+    }
 
     protected override void Start()
     {
@@ -56,7 +63,8 @@ public class WalkingBombAI : EnemyAI
 
             if (toPlayer.magnitude < 4f)
             {
-                StartCoroutine(JumpAndExplode());
+                jumped = true;
+                walkingBombActions.JumpAndExplode();
             }
         }
     }
@@ -79,19 +87,19 @@ public class WalkingBombAI : EnemyAI
 
     }
 
-    IEnumerator JumpAndExplode()
-    {
-        jumped = true;
-        rb2D.velocity=new Vector2(rb2D.velocity.x,10f);
-        yield return new WaitForSeconds(0.5f);
-        Explode();
-    }
+    //IEnumerator JumpAndExplode()
+    //{
+    //    jumped = true;
+    //    rb2D.velocity=new Vector2(rb2D.velocity.x,10f);
+    //    yield return new WaitForSeconds(0.5f);
+    //    Explode();
+    //}
 
-    void Explode()
-    {
-        Debug.Log("Explode");
-        Instantiate(explosion,transform.position,Quaternion.identity);
-        Destroy(gameObject);
-    }
+    //void Explode()
+    //{
+    //    Debug.Log("Explode");
+    //    Instantiate(explosion,transform.position,Quaternion.identity);
+    //    Destroy(gameObject);
+    //}
 
 }

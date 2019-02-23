@@ -8,7 +8,7 @@ public class Hackable : MonoBehaviour
 
     protected string cancelText;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         cancelText = "C - Cancel Hack";
         hacked = false;
