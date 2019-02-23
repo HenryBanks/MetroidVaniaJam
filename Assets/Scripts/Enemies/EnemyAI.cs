@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     protected State GetState() { return state; }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         simpleContactDetection = GetComponent<SimpleContactDetection>();
         rb2D = GetComponent<Rigidbody2D>();
