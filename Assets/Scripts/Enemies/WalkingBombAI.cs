@@ -72,9 +72,7 @@ public class WalkingBombAI : EnemyAI
     protected override void NotDetectedBehaviour()
     {
         base.NotDetectedBehaviour();
-
-        Debug.Log("OVERRIDE NotDetectedBehaviour");
-
+        
         if (simpleContactDetection.OnWallLeft)
         {
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
