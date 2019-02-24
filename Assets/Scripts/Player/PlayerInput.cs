@@ -14,6 +14,11 @@ public static class PlayerInput {
         return Input.GetKeyDown(KeyCode.H);
     }
 
+    public static bool HackInput()
+    {
+        return Input.GetKey(KeyCode.H);
+    }
+
     public static bool HackInputUp()
     {
         return Input.GetKeyUp(KeyCode.H);

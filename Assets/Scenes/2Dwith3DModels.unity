@@ -7354,6 +7354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackTargetBox: {x: 10, y: 10}
+  timeToHack: 1
 --- !u!1 &725372031
 GameObject:
   m_ObjectHideFlags: 0

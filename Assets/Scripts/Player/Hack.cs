@@ -10,8 +10,14 @@ public class Hack : MonoBehaviour
     Hackable currentTarget;
     Vector2 hackBoxCentre;
 
+    [SerializeField]
+    float timeToHack;
+
+    float timeSpentHacking;
+
     private void Awake()
     {
+        timeSpentHacking = 0f;
         hackBoxCentre = (Vector2)transform.position + new Vector2(transform.localScale.x * hackTargetBox.x / 2, 0f);
         currentTarget = null;
     }
@@ -21,12 +27,27 @@ public class Hack : MonoBehaviour
     {
         getHackTarget();
 
+        if (Input.anyKeyDown)
+        {
+            timeSpentHacking = 0f;
+        }
+
+        if (currentTarget != null)
+        {
+            if (PlayerInput.HackInput())
+            {
+                timeSpentHacking += Time.deltaTime;
+
+                if (timeSpentHacking >= timeToHack)
+                {
+                    currentTarget.SetHacked();
+                }
+            }
+        }
+
         if (PlayerInput.HackInputUp())
         {
-            if (currentTarget != null)
-            {
-                currentTarget.SetHacked();
-            }
+            timeSpentHacking = 0f;
         }
 
     }
