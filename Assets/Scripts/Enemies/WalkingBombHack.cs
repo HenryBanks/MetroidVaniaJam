@@ -9,7 +9,6 @@ public class WalkingBombHack : Hackable
 
     bool jumped;
 
-    [SerializeField]
     float runSpeed;
 
     Rigidbody2D rb2d;
@@ -25,6 +24,7 @@ public class WalkingBombHack : Hackable
         jumped = false;
         walkingBombActions = GetComponent<WalkingBombActions>();
         walkingBombAI = GetComponent<WalkingBombAI>();
+        runSpeed = walkingBombActions.RunSpeed;
     }
 
 

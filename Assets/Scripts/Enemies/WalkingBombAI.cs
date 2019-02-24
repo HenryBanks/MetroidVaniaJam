@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class WalkingBombAI : EnemyAI
 {
-    [SerializeField]
     float walkSpeed;
 
-    [SerializeField]
     float runSpeed;
 
     bool jumped;
@@ -20,6 +18,8 @@ public class WalkingBombAI : EnemyAI
     void Awake()
     {
         walkingBombActions = GetComponent<WalkingBombActions>();
+        runSpeed = walkingBombActions.RunSpeed;
+        walkSpeed = walkingBombActions.WalkSpeed;
     }
 
     protected override void Start()

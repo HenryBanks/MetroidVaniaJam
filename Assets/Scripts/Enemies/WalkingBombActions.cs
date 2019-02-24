@@ -8,8 +8,13 @@ public class WalkingBombActions : MonoBehaviour
     [SerializeField]
     float walkSpeed;
 
+    public float WalkSpeed { get { return walkSpeed; } }
+
     [SerializeField]
     float runSpeed;
+
+    public float RunSpeed { get { return runSpeed; } }
+
 
     [SerializeField]
     Explosion explosion;
