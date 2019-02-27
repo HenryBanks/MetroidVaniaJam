@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelTransitions : MonoBehaviour
 {
     public static LevelTransitions instance;
 
     int positionIndex=0;
+
+    CanvasGroup transitionScreen;
 
     void Awake()
     {
@@ -40,6 +43,8 @@ public class LevelTransitions : MonoBehaviour
 
     void OnEnable()
     {
+        transitionScreen = TransitionScreen.instance.canvasGroup;
+        TransitionScreen.instance.canvasGroup.alpha = 1f;
         Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -50,13 +55,22 @@ public class LevelTransitions : MonoBehaviour
         Debug.Log(SpawnPositions.instance.spawnPositionsList[positionIndex]);
         Player.instance.transform.position = SpawnPositions.instance.spawnPositionsList[positionIndex];
         Debug.Log(Player.instance.transform.position);
+        StartCoroutine(FadeIn(10));
     }
 
     public void LoadLevelWithPosition(int sceneIndex, int posIndex)
     {
         positionIndex = posIndex;
         SceneManager.LoadScene(sceneIndex);
+    }
 
+    public IEnumerator FadeIn(int steps)
+    {
+        for (int f = 0; f <= steps; f++)
+        {
+            TransitionScreen.instance.canvasGroup.alpha -= 1f / steps;
+            yield return null;
+        }
     }
 
 }
