@@ -43,8 +43,6 @@ public class LevelTransitions : MonoBehaviour
 
     void OnEnable()
     {
-        transitionScreen = TransitionScreen.instance.canvasGroup;
-        TransitionScreen.instance.canvasGroup.alpha = 1f;
         Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -55,7 +53,8 @@ public class LevelTransitions : MonoBehaviour
         Debug.Log(SpawnPositions.instance.spawnPositionsList[positionIndex]);
         Player.instance.transform.position = SpawnPositions.instance.spawnPositionsList[positionIndex];
         Debug.Log(Player.instance.transform.position);
-        StartCoroutine(FadeIn(10));
+        TransitionScreen.instance.canvasGroup.alpha = 1f;
+        StartCoroutine(FadeIn(100));
     }
 
     public void LoadLevelWithPosition(int sceneIndex, int posIndex)
