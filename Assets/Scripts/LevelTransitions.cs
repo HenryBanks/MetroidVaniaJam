@@ -29,7 +29,8 @@ public class LevelTransitions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            LoadLevelWithPosition(1, 1);
+            //LoadLevelWithPosition(1, 1);
+            StartCoroutine(FadeOut(50));
         }
     }
 
@@ -54,7 +55,7 @@ public class LevelTransitions : MonoBehaviour
         Player.instance.transform.position = SpawnPositions.instance.spawnPositionsList[positionIndex];
         Debug.Log(Player.instance.transform.position);
         TransitionScreen.instance.canvasGroup.alpha = 1f;
-        StartCoroutine(FadeIn(100));
+        StartCoroutine(FadeIn(50));
     }
 
     public void LoadLevelWithPosition(int sceneIndex, int posIndex)
@@ -63,13 +64,24 @@ public class LevelTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public IEnumerator FadeIn(int steps)
+    IEnumerator FadeIn(int steps)
     {
         for (int f = 0; f <= steps; f++)
         {
             TransitionScreen.instance.canvasGroup.alpha -= 1f / steps;
             yield return null;
         }
+    }
+
+    IEnumerator FadeOut(int steps)
+    {
+        for (int f = 0; f <= steps; f++)
+        {
+            TransitionScreen.instance.canvasGroup.alpha += 1f / steps;
+            yield return null;
+        }
+        LoadLevelWithPosition(1, 1);
+
     }
 
 }
