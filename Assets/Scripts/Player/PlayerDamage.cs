@@ -8,7 +8,10 @@ public class PlayerDamage : Damagable
     {
         base.Death();
 
-        Debug.Log("PLAYER DEAD, RETURN TO SOME POINT");
+        Debug.Log("PLAYER DEAD");
+        health = maxHealth;
+        CharacterInfo.instance.SetHealth(health, maxHealth);
+        LevelTransitions.instance.StartLoadLevelWithPosition(Player.instance.respawnScene, Player.instance.respawnIndex);
     }
 
     public override void LoseHealth(int healthLost)
@@ -25,7 +28,7 @@ public class PlayerDamage : Damagable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKey(KeyCode.K))
         {
             LoseHealth(10);
         }

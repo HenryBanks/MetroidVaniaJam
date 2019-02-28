@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class PlayerInput {
 
+    public static bool InteractInput()
+    {
+        return Input.GetKey(KeyCode.E);
+    }
+
     public static bool CancelInputUp()
     {
         return Input.GetKeyUp(KeyCode.C);

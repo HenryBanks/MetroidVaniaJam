@@ -30,7 +30,7 @@ public class LevelTransitions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             //LoadLevelWithPosition(1, 1);
-            StartCoroutine(FadeOut(50));
+            StartCoroutine(FadeOut(50,1,1));
         }
     }
 
@@ -58,10 +58,15 @@ public class LevelTransitions : MonoBehaviour
         StartCoroutine(FadeIn(50));
     }
 
-    public void LoadLevelWithPosition(int sceneIndex, int posIndex)
+    void LoadLevelWithPosition(int sceneIndex, int posIndex)
     {
         positionIndex = posIndex;
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void StartLoadLevelWithPosition(int sceneIndex, int posIndex)
+    {
+        StartCoroutine(FadeOut(50, sceneIndex, posIndex));
     }
 
     IEnumerator FadeIn(int steps)
@@ -73,14 +78,14 @@ public class LevelTransitions : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(int steps)
+    IEnumerator FadeOut(int steps, int sceneIndex, int spawnIndex)
     {
         for (int f = 0; f <= steps; f++)
         {
             TransitionScreen.instance.canvasGroup.alpha += 1f / steps;
             yield return null;
         }
-        LoadLevelWithPosition(1, 1);
+        LoadLevelWithPosition(sceneIndex, spawnIndex);
 
     }
 

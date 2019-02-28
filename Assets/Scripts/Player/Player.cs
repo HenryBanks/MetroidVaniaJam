@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
     Dash dash;
     Hack hack;
 
+    public int respawnScene=0;
+    public int respawnIndex=0;
+
     public static Player instance;
 
     // Use this for initialization
