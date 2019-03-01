@@ -43,6 +43,7 @@ public class RespawnPoint : MonoBehaviour
             canvasGroup.alpha = 1f;
             if (PlayerInput.InteractInput())
             {
+                Debug.Log("SPAWN SET "+ SceneManager.GetActiveScene().buildIndex.ToString());
                 Player.instance.respawnScene = SceneManager.GetActiveScene().buildIndex;
                 Player.instance.respawnIndex = respawnIndex;
             }

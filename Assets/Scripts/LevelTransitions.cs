@@ -30,7 +30,7 @@ public class LevelTransitions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             //LoadLevelWithPosition(1, 1);
-            StartCoroutine(FadeOut(50,1,1));
+            StartCoroutine(FadeOut(50,Player.instance.respawnScene,Player.instance.respawnIndex));
         }
     }
 
