@@ -43,7 +43,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, Player.instance.transform.position);
+        if (Player.instance != null)
+        {
+            Gizmos.DrawLine(transform.position, Player.instance.transform.position);
+        }
     }
 
     protected virtual void NotDetectedBehaviour()
