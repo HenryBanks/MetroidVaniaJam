@@ -18,7 +18,10 @@ public class PlayerDamage : Damagable
     {
         base.LoseHealth(healthLost);
 
-        CharacterInfo.instance.SetHealth(health, maxHealth);
+        if (health > 0)
+        {
+            CharacterInfo.instance.SetHealth(health, maxHealth);
+        }
     }
 
     private void Start()
