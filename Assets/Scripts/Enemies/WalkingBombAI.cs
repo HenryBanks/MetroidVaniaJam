@@ -75,7 +75,6 @@ public class WalkingBombAI : EnemyAI
 
         if (simpleContactDetection.OnWallLeft || !simpleContactDetection.GroundLeft)
         {
-            Debug.Log(simpleContactDetection.GroundLeft);
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
         }
         if (simpleContactDetection.OnWallRight || !simpleContactDetection.GroundRight)

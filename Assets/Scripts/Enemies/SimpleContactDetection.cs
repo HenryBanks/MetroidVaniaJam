@@ -61,18 +61,6 @@ public class SimpleContactDetection : MonoBehaviour
         groundLeft = Physics2D.OverlapBox(boxCentreEdgeLeft, boxSizeEdge, 0f) != null;
         groundRight = Physics2D.OverlapBox(boxCentreEdgeRight, boxSizeEdge, 0f) != null;
 
-        if (!GroundLeft)
-        {
-            Debug.Log(groundLeft);
-            Debug.Log("Not GroundLeft");
-        }
-
-        if (!GroundRight)
-        {
-            Debug.Log(groundRight);
-            Debug.Log("Not GroundRight");
-        }
-
     }
 
     void OnDrawGizmos()
