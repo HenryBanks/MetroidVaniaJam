@@ -25,6 +25,7 @@ public class MeleeEnemyActions : MonoBehaviour
     {
         enemySlash = GetComponentInChildren<EnemySlash>();
         rb2D = GetComponent<Rigidbody2D>();
+        enemySlash.gameObject.SetActive(false);
     }
 
     public void StartSlash()
