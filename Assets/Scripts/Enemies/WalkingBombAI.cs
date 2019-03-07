@@ -34,7 +34,7 @@ public class WalkingBombAI : EnemyAI
     protected override void Update()
     {
         base.Update();
-        Debug.Log(GetState());
+        //Debug.Log(GetState());
 
     }
 
@@ -72,12 +72,13 @@ public class WalkingBombAI : EnemyAI
     protected override void NotDetectedBehaviour()
     {
         base.NotDetectedBehaviour();
-        
-        if (simpleContactDetection.OnWallLeft)
+
+        if (simpleContactDetection.OnWallLeft || !simpleContactDetection.GroundLeft)
         {
+            Debug.Log(simpleContactDetection.GroundLeft);
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
         }
-        if (simpleContactDetection.OnWallRight)
+        if (simpleContactDetection.OnWallRight || !simpleContactDetection.GroundRight)
         {
             transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
         }

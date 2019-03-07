@@ -50,11 +50,11 @@ public class PatrollingRangedAI : EnemyAI
     {
         base.NotDetectedBehaviour();
 
-        if (simpleContactDetection.OnWallLeft)
+        if (simpleContactDetection.OnWallLeft || !simpleContactDetection.GroundLeft)
         {
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
         }
-        if (simpleContactDetection.OnWallRight)
+        if (simpleContactDetection.OnWallRight || !simpleContactDetection.GroundRight)
         {
             transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
         }
