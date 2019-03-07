@@ -55,6 +55,7 @@ public class LevelTransitions : MonoBehaviour
         Player.instance.transform.position = SpawnPositions.instance.spawnPositionsList[positionIndex];
         Debug.Log(Player.instance.transform.position);
         TransitionScreen.instance.canvasGroup.alpha = 1f;
+        Player.instance.Respawn();
         StartCoroutine(FadeIn(50));
     }
 

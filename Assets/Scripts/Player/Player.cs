@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    PlayerDamage playerDamage;
     PlayerJump meatJump;
     PlayerMove meatMove;
     WallJump wallJump;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        playerDamage = GetComponent<PlayerDamage>();
         meatJump = GetComponent<PlayerJump>();
         meatMove = GetComponent<PlayerMove>();
         wallJump = GetComponent<WallJump>();
@@ -57,6 +59,9 @@ public class Player : MonoBehaviour {
 
     }
 
-
+    public void Respawn()
+    {
+        playerDamage.ResetDying();
+    }
 
 }

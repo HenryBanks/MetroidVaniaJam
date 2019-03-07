@@ -30,13 +30,13 @@ public class PatrollingRangedAI : EnemyAI
 
         if (toPlayer.x > 0f)
         {
-            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             
         }
 
         if (toPlayer.x < 0f)
         {
-            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
         if (Time.time > patrollingRangedActions.TimeToNextShot)

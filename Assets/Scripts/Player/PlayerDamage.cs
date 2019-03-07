@@ -8,6 +8,7 @@ public class PlayerDamage : Damagable
     {
         base.Death();
 
+
         Debug.Log("PLAYER DEAD");
         health = maxHealth;
         CharacterInfo.instance.SetHealth(health, maxHealth);
@@ -22,6 +23,7 @@ public class PlayerDamage : Damagable
         {
             CharacterInfo.instance.SetHealth(health, maxHealth);
         }
+
     }
 
     private void Start()

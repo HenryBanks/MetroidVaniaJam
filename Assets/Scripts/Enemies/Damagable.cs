@@ -6,24 +6,37 @@ public class Damagable : MonoBehaviour
 {
     protected int health;
 
+    bool dying;
+
     [SerializeField]
     protected int maxHealth;
 
     private void Awake()
     {
         health = maxHealth;
+        dying = false;
+    }
+
+    public void ResetDying()
+    {
+        dying = false;
     }
 
     protected virtual void Death()
     {
         Debug.Log(gameObject.name + " Death");
+        dying = true;
     }
 
     public virtual void LoseHealth(int healthLost)
     {
-        health -= healthLost;
-        if (health <= 0){
-            Death();
+        if (!dying)
+        {
+            health -= healthLost;
+            if (health <= 0)
+            {
+                Death();
+            }
         }
     }
 

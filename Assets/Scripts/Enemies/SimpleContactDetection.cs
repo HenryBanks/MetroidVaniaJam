@@ -17,6 +17,7 @@ public class SimpleContactDetection : MonoBehaviour
     float wallSkin = 0.1f;
     float groundedSkin = 0.1f;
 
+    LayerMask mask;
 
 
     bool grounded = false;
@@ -36,6 +37,8 @@ public class SimpleContactDetection : MonoBehaviour
         boxSizeWall = new Vector2(wallSkin, size.y * 0.8f);
         boxSize = new Vector2(size.x * 0.8f, groundedSkin);
         boxSizeEdge = new Vector2(1f, 0.1f);
+
+        mask = LayerMask.GetMask("Default");
     }
 
 
@@ -43,17 +46,17 @@ public class SimpleContactDetection : MonoBehaviour
     void Update()
     {
 
-        boxCentreRight = (Vector2)transform.position + Vector2.right * 0.55f * (size.x + boxSizeWall.x);
-        boxCentreLeft = (Vector2)transform.position + Vector2.left * 0.55f * (size.x + boxSizeWall.x);
+        boxCentreRight = (Vector2)transform.position + Vector2.right * Mathf.Abs(transform.localScale.x) * 0.55f * (size.x + boxSizeWall.x);
+        boxCentreLeft = (Vector2)transform.position + Vector2.left * Mathf.Abs(transform.localScale.x) * 0.55f * (size.x + boxSizeWall.x);
         boxCentre = (Vector2)transform.position + Vector2.down * 0.55f * (size.y + boxSize.y);
-        boxCentreEdgeRight = (Vector2)transform.position + Vector2.right * 0.55f * (size.x + boxSizeEdge.x) + Vector2.down * 0.55f * transform.localScale.y * (size.y + boxSizeEdge.y);
-        boxCentreEdgeLeft = (Vector2)transform.position + Vector2.left * 0.55f * (size.x + boxSizeEdge.x) + Vector2.down * 0.55f * transform.localScale.y * (size.y + boxSizeEdge.y);
+        boxCentreEdgeRight = (Vector2)transform.position + Vector2.right * 0.55f * Mathf.Abs(transform.localScale.x) * (size.x + boxSizeEdge.x) + Vector2.down * 0.55f * transform.localScale.y * (size.y + boxSizeEdge.y);
+        boxCentreEdgeLeft = (Vector2)transform.position + Vector2.left * 0.55f * Mathf.Abs(transform.localScale.x) * (size.x + boxSizeEdge.x) + Vector2.down * 0.55f * transform.localScale.y * (size.y + boxSizeEdge.y);
 
         //onWallRight = Physics2D.OverlapBox(boxCentreRight, boxSizeWall, 0f) != null;
         //onWallLeft = Physics2D.OverlapBox(boxCentreLeft, boxSizeWall, 0f) != null;
         //grounded = Physics2D.OverlapBox(boxCentre, boxSize, 0f) != null;
 
-        grounded = Physics2D.OverlapBox(boxCentre, boxSize, 0f) != null;
+        grounded = Physics2D.OverlapBox(boxCentre, boxSize, 0f,mask) != null;
 
         onWallLeft = Physics2D.OverlapBox(boxCentreLeft, boxSizeWall, 0f) != null;
         onWallRight = Physics2D.OverlapBox(boxCentreRight, boxSizeWall, 0f) != null;

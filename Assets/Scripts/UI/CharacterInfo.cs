@@ -13,7 +13,15 @@ public class CharacterInfo : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
         healthContainer = transform.Find("HealthBarContainer");
         healthBar = healthContainer.Find("HealthBar").GetComponent<Image>();
         healthText = healthContainer.Find("Text").GetComponent<Text>();
