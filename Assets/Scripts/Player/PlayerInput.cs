@@ -4,6 +4,16 @@ using UnityEngine;
 
 public static class PlayerInput {
 
+    public static bool PauseKeyDown()
+    {
+        return Input.GetKeyDown(KeyCode.Escape);
+    }
+
+    public static bool AttackInputDown()
+    {
+        return Input.GetKeyDown(KeyCode.LeftControl);
+    }
+
     public static bool InteractInput()
     {
         return Input.GetKey(KeyCode.E);

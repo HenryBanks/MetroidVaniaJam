@@ -44,13 +44,13 @@ public class LevelTransitions : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable called");
+        //Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded");
+        //Debug.Log("Scene Loaded");
         Debug.Log(SpawnPositions.instance.spawnPositionsList[positionIndex]);
         Player.instance.transform.position = SpawnPositions.instance.spawnPositionsList[positionIndex];
         Debug.Log(Player.instance.transform.position);

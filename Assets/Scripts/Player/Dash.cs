@@ -20,7 +20,7 @@ public class Dash : MonoBehaviour {
 
     private void Update()
     {
-        if (canDash && PlayerInput.DashInputDown())
+        if (canDash && InputManager.instance.DashInputDown())
         {
             Debug.Log("DASH");
             StartCoroutine(RunDash());

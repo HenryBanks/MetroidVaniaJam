@@ -16,7 +16,7 @@ public class Hackable : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (PlayerInput.CancelInputUp() && hacked)
+        if (InputManager.instance.CancelInputUp() && hacked)
         {
             CancelHack();
         }

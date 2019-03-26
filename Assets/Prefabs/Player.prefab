@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4693769943217214302}
   - component: {fileID: 703142717}
   - component: {fileID: 703142718}
+  - component: {fileID: 619428627}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -150,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb479b2b80e8f410d934b41ec75e4472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnScene: 0
+  respawnIndex: 0
 --- !u!114 &4693769943217214293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +240,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hackTargetBox: {x: 10, y: 10}
   timeToHack: 1
+--- !u!114 &619428627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693769943217214251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743c273ae7a944289802ceb32662fdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoredTag: Player
+  damage: 10
+  attackTime: 0.5
 --- !u!1 &4693769944259788377
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,11 +359,11 @@ GameObject:
   - component: {fileID: 1780466158}
   m_Layer: 10
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4693769944262298107
 Transform:
   m_ObjectHideFlags: 0

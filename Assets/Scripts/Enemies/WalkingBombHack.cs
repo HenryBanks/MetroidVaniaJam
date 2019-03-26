@@ -40,7 +40,7 @@ public class WalkingBombHack : Hackable
                     rb2d.velocity = new Vector2(Mathf.Sign(Input.GetAxis("Horizontal"))*runSpeed,rb2d.velocity.y);
                 }
 
-                if (PlayerInput.JumpInputUp())
+                if (InputManager.instance.JumpInputUp())
                 {
                     jumped = true;
                     CancelHack();

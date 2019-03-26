@@ -14,7 +14,7 @@ public class DoorOpen : Hackable
 
         if (hacked)
         {
-            if (PlayerInput.JumpInputUp())
+            if (InputManager.instance.JumpInputUp())
             {
                 OpenDoor();
             }

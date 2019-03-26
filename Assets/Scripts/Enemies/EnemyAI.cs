@@ -51,13 +51,13 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void NotDetectedBehaviour()
     {
-        Debug.Log("Not Detected");
+        //Debug.Log("Not Detected");
         state = State.notDetected;
     }
 
     protected virtual void DetectedBehaviour()
     {
-        Debug.Log("Detected");
+        //Debug.Log("Detected");
         state = State.detected;
     }
 

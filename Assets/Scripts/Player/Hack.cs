@@ -34,7 +34,7 @@ public class Hack : MonoBehaviour
 
         if (currentTarget != null)
         {
-            if (PlayerInput.HackInput())
+            if (InputManager.instance.HackInput())
             {
                 timeSpentHacking += Time.deltaTime;
 
@@ -45,7 +45,7 @@ public class Hack : MonoBehaviour
             }
         }
 
-        if (PlayerInput.HackInputUp())
+        if (InputManager.instance.HackInputUp())
         {
             timeSpentHacking = 0f;
         }

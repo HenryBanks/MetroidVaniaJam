@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour
     {
 
 
-        if (PlayerInput.JumpInputDown())
+        if (InputManager.instance.JumpInputDown())
         {
             Debug.Log("JUMP INPUT");
             Debug.Log(contactDetection.Grounded);
@@ -45,7 +45,7 @@ public class PlayerJump : MonoBehaviour
 
         if (jumping)
         {
-            if(PlayerInput.JumpInputUp())
+            if(InputManager.instance.JumpInputUp())
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Min(rb2d.velocity.y, 0.0f));
                 jumping = false;
